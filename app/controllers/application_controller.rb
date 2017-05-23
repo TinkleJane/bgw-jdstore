@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     redirect_to '/', alert: 'You are not admin.' unless current_user.admin?
   end
 
-  helper_method :current_user
+  helper_method :current_cart
 
   def current_cart
     @current_cart ||= find_cart
@@ -15,11 +15,8 @@ class ApplicationController < ActionController::Base
 
   def find_cart
     cart = Cart.find_by(id: session[:cart_id])
-    if cart.blank?
-      cart = Cart.create
-    else
-      session[:cart_id] = cart.id
-      return cart
-    end
+    cart = Cart.create if cart.blank?
+    session[:cart_id] = cart.id
+    cart
   end
 end
