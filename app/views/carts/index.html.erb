@@ -4,7 +4,7 @@
     <h2>
       购物车
     </h2>
-
+    <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-default pull-right", data: {confirm: "你确定要清空整个购物车吗？"} ) %>
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -14,7 +14,6 @@
         </tr>
       </thead>
       <tbody>
-
         <% current_cart.cart_items.each do |cart_item| %>
         <tr>
           <td>
