@@ -1,3 +1,19 @@
-<h1>
-  Hello World!
-</h1>
+<div class="row">
+  <div class="category-header-image">
+    <img src="https://ww3.sinaimg.cn/large/006tKfTcly1fg8wi235l5j30xc05k75w.jpg" alt="" title="" class="header-image">
+  </div>
+
+  <section>
+    <div class="fp-section-content">
+      <%= image_tag("fashion1.jpg") %>
+      <%= image_tag("idea1.jpg") %>
+      <%= image_tag("lover1.jpg") %>
+      <%= image_tag("team1.jpg") %>
+    </div>
+  </section>
+
+  <!--===== 立即購買 =====-->
+  <section class="push-box">
+    <%= link_to("立即购买", products_path, class:'btn btn-lg btn-default' ) %>
+  </section>
+</div>
