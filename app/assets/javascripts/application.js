@@ -16,3 +16,14 @@
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require_tree .
+
+/*===== Products#show - 變更顯示圖片 =====*/
+$(document).on('mouseover', '.list-image', function () {
+  $('.list-image').hover(function (event) {
+    var src = $(this).attr("src")
+    $('#imageshow').attr({"src": src, width: "400", height: "400"})
+
+    $('.list-image').removeClass('list-image-active') //其他圖片移除鎖定狀態
+    $(this).addClass('list-image-active') //當前圖片新增鎖定狀態
+  });
+})

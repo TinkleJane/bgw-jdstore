@@ -107,3 +107,12 @@
   height: 200px;
   background: image_url("bottom_image.jpg") no-repeat scroll top center/ cover;
 }
+
+/*===== Show 商品详情-图片 =====*/
+.list-image{
+  width: 100%;
+}
+
+.list-image-active {
+      box-shadow: 1.5px 1.5px 1.5px #666;
+    }
