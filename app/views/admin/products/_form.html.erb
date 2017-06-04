@@ -20,7 +20,7 @@
   <% if @product.image.present? %>
   <label class="control-label">商品展示图片</label>
   <br>
-  <%= image_tag @product.image.thumb.url, :class => "col-md-3" %>
+  <%= image_tag @product.image.thumb.url unless p.image.blank?, :class => "col-md-3" %>
   <% end %>
 </div>
 <div class="col-md-12">
@@ -32,7 +32,7 @@
   <label class="control-label">商品图片</label>
   <br>
   <% @product.photos.each do |p| %>
-  <%= image_tag p.avatar.thumb.url, :class => "col-md-3" %>
+  <%= image_tag p.avatar.thumb.url unless p.image.blank?, :class => "col-md-3" %>
   <% end %>
   <% end %>
 </div>
