@@ -9,4 +9,8 @@ class User < ApplicationRecord
   end
 
   has_many :orders
+
+  def display_name
+    self.email.split("@").first
+  end
 end

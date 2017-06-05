@@ -4,8 +4,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
+  storage :qiniu
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -18,7 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # For Rails 3. asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  #   '/images/fallback/' + [version_name, 'default.png'].compact.join('_')
   # end
 
   # Process files as they are uploaded:

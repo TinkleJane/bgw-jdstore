@@ -1,35 +1,80 @@
 <div class="row">
-  <div class="col-md-6">
-    <% if @product.image.present? %>
-    <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
-  <% else %>
-    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-    <% end %>
+  <div class="content_container">
+    <div class="row pt20">
+      <div class="col-md-6 col-sm-6">
+        <% if @product.image.present? %>
+        <%= image_tag(@product.image.medium.url, id: "imageshow") %>
+        <br><br>
+        <div style="height: 200px;">
+          <span><%= image_tag @product.image.thumb.url, class: "list-image", style: "width:100px; height:100px;" %></span>
+          <% @product.photos.first(3).each_with_index do |p, index| %>
+          <span><%= image_tag p.avatar.thumb.url, class: "list-image", style: "width:100px; height:100px;" %></span>
+          <% end %>
+        </div>
+      <% else %>
+        <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <h2>
+          <%= @product.title %>
+        </h2>
+        <div class="h100">
+          <p>
+            <%= @product.description %>
+          </p>
+        </div>
+        <div class="h50">
+          数量 :
+          <%= @product.quantity %>
+        </div>
+        <div class="h80">
+          ￥
+          <%= @product.price %>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 pt10">
+            <% if @product.quantity.present? && @product.quantity > 0 %>
+            <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post,
+                            class: "btn btn-lg btn-normal") %>
+          <% else %>
+            已销售一空，无法购买
+            <% end %>
+          </div>
+          <div class="col-md-6 col-sm-6 pt10">
+            <%= link_to("收藏❤️", add_to_cart_product_path(@product), method: :post,
+                            class: "btn btn-lg btn-wight") %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h2>
-      <%= @product.title %>
-    </h2>
-    <div style="height:100px;">
-      <p>
-        <%= @product.description %>
-      </p>
-    </div>
-    <div>
-      数量 :
-      <%= @product.quantity %>
-    </div>
-    <div class="product-price">
-      ￥
-      <%= @product.price %>
-    </div>
-    <div class="pull-right">
-      <% if @product.quantity.present? && @product.quantity > 0 %>
-      <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post,
-                          class: "btn btn-lg btn-danger") %>
-    <% else %>
-      已销售一空，无法购买
+</div>
+<hr>
+<div class="col-md-12"></div>
+<div class="content_container text-center pb20">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#Details">商品详情</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#Comments">商品评论</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="Details" class="tab-pane fade in active">
+      <% if @product.photos.present? %>
+      <% @product.photos.each_with_index do |p, index| %>
+      <% if !p.avatar.url.blank? %>
+      <%= image_tag p.avatar.url, resize_to_fit:[400,600], class: "thumbnail centerPhoto" %>
+      <br >
+      <br>
       <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <div id="Comments" class="tab-pane fade">
+      aaa
     </div>
   </div>
 </div>

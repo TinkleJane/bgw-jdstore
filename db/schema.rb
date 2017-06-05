@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524112747) do
+ActiveRecord::Schema.define(version: 20170605121028) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -25,6 +25,41 @@ ActiveRecord::Schema.define(version: 20170524112747) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "group_relationships", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "label_relationships", force: :cascade do |t|
+    t.integer  "label_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "total",            default: 0
     t.integer  "user_id"
@@ -32,8 +67,20 @@ ActiveRecord::Schema.define(version: 20170524112747) do
     t.string   "billing_address"
     t.string   "shipping_name"
     t.string   "shipping_address"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "token"
+    t.boolean  "is_paid",          default: false
+    t.string   "payment_method"
+    t.string   "aasm_state",       default: "order_placed"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_lists", force: :cascade do |t|
@@ -50,9 +97,14 @@ ActiveRecord::Schema.define(version: 20170524112747) do
     t.text     "description"
     t.integer  "quantity"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "image"
+    t.boolean  "is_hidden",   default: false
+    t.boolean  "is_command",  default: false
+    t.integer  "color",       default: 0
+    t.index ["color"], name: "index_products_on_color"
+    t.index ["is_hidden"], name: "index_products_on_is_hidden"
   end
 
   create_table "users", force: :cascade do |t|
