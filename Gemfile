@@ -50,11 +50,15 @@ gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
 
+gem 'select2-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'pry'
+  gem 'awesome_rails_console'
 end
 
 group :development do

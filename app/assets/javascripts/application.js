@@ -15,7 +15,12 @@
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require select2
 //= require_tree .
+
+$( "#dropdown" ).select2({
+    theme: "bootstrap"
+});
 
 /*===== Products#show - 變更顯示圖片 =====*/
 $(document).on('mouseover', '.list-image', function () {

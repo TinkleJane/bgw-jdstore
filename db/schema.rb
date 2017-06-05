@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604020523) do
+ActiveRecord::Schema.define(version: 20170605024357) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -21,6 +21,34 @@ ActiveRecord::Schema.define(version: 20170604020523) do
   end
 
   create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "group_relationships", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "label_relationships", force: :cascade do |t|
+    t.integer  "label_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,9 +90,14 @@ ActiveRecord::Schema.define(version: 20170604020523) do
     t.text     "description"
     t.integer  "quantity"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "image"
+    t.boolean  "is_hidden",   default: false
+    t.boolean  "is_command",  default: false
+    t.integer  "color",       default: 0
+    t.index ["color"], name: "index_products_on_color"
+    t.index ["is_hidden"], name: "index_products_on_is_hidden"
   end
 
   create_table "users", force: :cascade do |t|
