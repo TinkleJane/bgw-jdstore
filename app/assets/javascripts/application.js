@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/alert
-//= require bootstrap/dropdown
+//= bootstrap-sprockets
 //= require select2
-//= require_tree .
 
 $( "#dropdown" ).select2({
     theme: "bootstrap"

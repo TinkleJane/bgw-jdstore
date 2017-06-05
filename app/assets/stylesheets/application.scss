@@ -20,20 +20,31 @@
 @import "select2";
 @import "select2-bootstrap";
 
+.btn-base{
+  width: 100%;
+  border-radius: 30px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
 .btn-normal{
+      @extend.btn-base;
       color: #fff;
       background-color: #000;
       border-color: #000;
-      font-size: 16px;
-      letter-spacing: 1px;
-      width: 100%;
     }
 
 .btn-wight, .btn-normal:hover{
+  @extend.btn-base;
       color: #000;
       background-color: #fff;
       border-color: #000;
     }
+
+.btn-wight:hover{
+  @extend.btn-base;
+  background-color: #EEE;
+  width: 100%;
+}
 .user_container{
   background: #fff;
   margin-top: 100px;

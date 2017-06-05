@@ -15,16 +15,16 @@
 <div class="col-md-6">
   <%= f.input :price %>
 </div>
-<div class="col-md-12">
+<div class="col-md-6 col-sm-12">
   <%= f.association :labels %>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-6 col-sm-12">
   <%= f.association :groups %>
 </div>
 
 <div class="form-group col-md-12">
-  <% if @product.image.present? %>
+  <% if @product.image.present? && !@product.image.thumb.url.blank? %>
   <label class="control-label">商品展示图片</label>
   <br>
   <%= image_tag @product.image.thumb.url, :class => "col-md-3" %>
@@ -39,7 +39,9 @@
   <label class="control-label">商品系列图片</label>
   <br>
   <% @product.photos.each do |p| %>
-  <%= image_tag p.avatar.thumb.url, :class => "col-md-3" %>
+  <% if !p.avatar.thumb.url.blank? %>
+  <%= image_tag p.avatar.thumb.url, :class => "col-md-3 m10" %>
+  <% end %>
   <% end %>
   <% end %>
 </div>
@@ -53,8 +55,11 @@
   <%= f.input :is_command %>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-6 pb100">
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-normal" %>
+</div>
+<div class="col-md-6 pb100">
+  <%= link_to("Cancel", admin_products_path, class: "btn btn-wight") %>
 </div>
 <% end %>
 
