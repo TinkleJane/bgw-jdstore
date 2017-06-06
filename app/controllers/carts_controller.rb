@@ -8,4 +8,10 @@ class CartsController < ApplicationController
   def checkout
     @order = Order.new
   end
+
+  def updateQuantity
+    if params[:quantity].present?
+
+    end
+  end
 end

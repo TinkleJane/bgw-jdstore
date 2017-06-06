@@ -5,7 +5,7 @@
       购物车
     </h2>
     <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-default pull-right", data: {confirm: "你确定要清空整个购物车吗？"} ) %>
-    <table class="table table-bordered">
+    <!-- <table class="table table-bordered">
       <thead>
         <tr>
           <th colspan="2">商品资讯</th>
@@ -51,28 +51,73 @@
         <% end %>
 
       </tbody>
-    </table>
+    </table> -->
+ <hr>
+    <div class="col-md-12 padding-bottom-2x">
+          <div class="shopping-cart">
+            <% current_cart.cart_items.each do |cart_item| %>
+              <div class="item">
+                  <% if cart_item.product.image.present? %>
+                    <%= link_to image_tag(cart_item.product.image.medium.url), product_path(cart_item.product), class: "item-thumb"%>
+                  <% else %>
+                    <%= link_to image_tag("http://placehold.it/200x200&text=No Pic"), product_path(cart_item.product), class: "item-thumb"%>
+                  <% end %>
+                  <div class="item-details">
+                      <p class="item-title">
+                        <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
+                      </p>
+                  </div>
 
+                  <div class="cart-quantity-box">
+                    <input class="cart-quantity-input" type="text" value="<%= cart_item.quantity %>">
+                  </div>
+                  <div class="cart-price-box">
+                    <p class="item-price">
+                      <strong>
+                        ¥<%= cart_item.product.price * cart_item.quantity%>
+                      </strong>
+                    </p>
+                  </div>
+
+                  <div class="row">
+                      <%= link_to cart_item_path(cart_item.product_id), class: "item-remove btn btn-xs  btn-grey", :data => { :confirm => "确认要将该商品移出购物车吗？" } ,method: :delete do %>
+                      <i class="fa fa-trash-o fa-fw"></i>
+                      <% end %>
+                  </div>
+
+              </div>
+            <% end %>
+          </div>
+        </div>
     <br>
 
     <div class="total clearfix">
-      <span class="pull-right">
-        <span>
+        <span class="pull-right col-md-3 text-center">
           总计
           <%= render_cart_total_price(current_cart) %>
           RMB
         </span>
-      </span>
     </div>
 
     <hr>
 
-    <div class="checkout clearfix">
-      <%= link_to("确认结账", checkout_carts_path, method: :post, class: "btn btn-lg btn-danger pull-right") %>
+    <div class="checkout clearfix col-md-3 pull-right">
+      <%= link_to("确认结账", checkout_carts_path, method: :post, class: "btn btn-lg btn-normal") %>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-  $()
+(".delete-comment").click(function (evt) {
+  evt.preventDefault();
+  var url = $(this).attr("href");
+  $.ajax({
+    url: url,
+    method: 'DELETE',
+    dataType: 'json',
+    success: function (data) {
+      $("#comment-" + data["id"]).remove();
+    }
+  })
+})
 </script>
