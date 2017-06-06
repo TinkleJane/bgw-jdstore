@@ -104,7 +104,7 @@
 </div>
 </div>
 <script>
-$(".delete-comment").click(function (evt) {
+$("#comment-list").on('click', ".delete-comment", function(evt){
   evt.preventDefault();
   var url = $(this).attr("href");
   $.ajax({

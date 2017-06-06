@@ -31,17 +31,22 @@ create_labels = for i in 1..label_names.length do
 end
 puts "create product labels and groups"
 
-# products = [
-#   {title: '1 product_test', description: '衣服的质地，颜色，尺码等', price: 99},
-#   {title: '2 product_test', description: '衣服的质地，颜色，尺码等', price: 99},
-#   {title: '3 product_test', description: '衣服的质地，颜色，尺码等', price: 99}
-# ]
-#
-# create_products = for i in 1..products.length do
-#   Product.create!(title: products[i - 1][:title], description: products[i - 1][:description], price: rand(5..100), quantity: 100)
-# end
-#
-# puts 'products created.'
+products = [
+  {title: '1 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '2 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '3 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '4 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '5 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '6 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '7 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '8 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+]
+
+create_products = for i in 1..products.length do
+  Product.create!(title: products[i - 1][:title], description: products[i - 1][:description], price: rand(5..100), quantity: 100)
+end
+
+puts 'products created.'
 #
 # images = [
 #   { index: 1,
