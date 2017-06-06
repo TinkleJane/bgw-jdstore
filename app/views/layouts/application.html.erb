@@ -2,15 +2,17 @@
 <html>
   <head>
     <title>BGW</title>
-    <%= csrf_meta_tags %>
-
+    <%= csrf_meta_tag %>
+    <!-- <meta name="turbolinks-cache-control" content="no-cache"> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="container-fluid">
-      <%= render "common/navbar" %>
+      <div class="row">
+        <%= render "common/navbar" %>
+      </div>
       <%= render "common/flashes" %>
       <%= yield %>
     </div>

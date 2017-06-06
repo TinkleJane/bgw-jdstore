@@ -5,7 +5,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'products#index'
+  root 'welcome#index'
+
+  resources :welcome do
+    collection do
+      get :about
+    end
+  end
 
   namespace :admin do
     resources :products
@@ -44,4 +50,6 @@ Rails.application.routes.draw do
   namespace :account do
     resources :orders
   end
+
+  resources :comments
 end
