@@ -51,5 +51,8 @@ Rails.application.routes.draw do
 
   namespace :account do
     resources :orders
-  end
+    resources :products
+    get :collected_products, controller: 'collected_products'
+    end
+
 end
