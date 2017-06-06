@@ -19,6 +19,11 @@
         <h2>
           <%= @product.title %>
         </h2>
+        <% if !@product.fans.include?(current_user)%>
+        <span class="label label-default pull-right">未收藏</span>
+        <% else %>
+        <span class="label label-success pull-right">已收藏</span>
+        <% end %>
         <div class="h100">
           <p>
             <%= @product.description %>
@@ -42,8 +47,12 @@
             <% end %>
           </div>
           <div class="col-md-6 col-sm-6 pt10">
-            <%= link_to("收藏❤️", add_to_cart_product_path(@product), method: :post,
+            <% if !@product.fans.include?(current_user)%>
+            <%= link_to("收藏❤️", collect_product_path(@product), method: :post,
                             class: "btn btn-lg btn-wight") %>
+            <% else %>
+             <%= link_to("取消收藏", discollect_product_path(@product), method: :post, class: "btn btn-lg btn-wight")%>
+            <% end %>
           </div>
         </div>
       </div>

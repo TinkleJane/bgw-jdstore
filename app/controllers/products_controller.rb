@@ -22,14 +22,14 @@ class ProductsController < ApplicationController
 
   def collect
     @product = Product.find(params[:id])
-    @product.collect!
+    current_user.collect!(@product)
     redirect_to :back
     flash[:notice] = "成功将#{@product.title} 加入收藏"
   end
 
   def discollect
     @product = Product.find(params[:id])
-    @product.discollect!
+    current_user.discollect!(@product)
     redirect_to :back
     flash[:notice] = "已经移除对#{@product.title} 的收藏 "
   end
