@@ -1,0 +1,28 @@
+
+<div class="col-md-8 col-md-offset-2">
+<h2 class="text-center">Oh My Love</h2>
+
+
+<table class="table">
+
+    <thead>
+      <tr>
+          <th>商品名称</th>
+          <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product|%>
+        <tr>
+            <td><%= link_to product.title, product_path(product)%></td>
+            <td>
+                <%= link_to("取消收藏", discollect_product_path(product), method: :post, class: "btn btn-default")%>
+            </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+
+</table>
+</div>

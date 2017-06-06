@@ -1,0 +1,2 @@
+module Account::CollectedProductsHelper
+end
