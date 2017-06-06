@@ -44,6 +44,7 @@
             <%= link_to("Admin 选单", admin_products_path ) %>
           </li>
           <% end %>
+          <li><%= link_to "我的藏品", account_collected_products_path %></li>   <!--http://localhost:3000/account/collected_products   这是网址，dropdown 无法点击未来得及修复-->
           <li>
             <%= link_to("个人订单列表", account_orders_path) %>
           </li>
