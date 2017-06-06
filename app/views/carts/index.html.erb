@@ -5,58 +5,11 @@
       购物车
     </h2>
     <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "btn btn-default pull-right", data: {confirm: "你确定要清空整个购物车吗？"} ) %>
-    <!-- <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2">商品资讯</th>
-          <th>单价</th>
-          <th>数量</th>
-          <th>操作选项
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_cart.cart_items.each do |cart_item| %>
-        <tr>
-          <td>
-            <%= link_to product_path(cart_item.product) do %>
-            <% if cart_item.product.image.present? %>
-            <%= image_tag(cart_item.product.image.thumb.url, class: "thumbnail") %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-            <% end %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
-          </td>
-          <td>
-            <%= cart_item.product.price %>
-          </td>
-          <td>
-
-            <%= text_field_tag "quantity[#{cart_item.product_id}]", "", class: 'form-control', :size=>"1"%>
-            <% cart_item = current_cart.cart_items.find_by(product_id: cart_item.product_id) %>
-            <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
-            <%= f.select :quantity, 1..cart_item.product.quantity %>
-            <%= f.submit "更新", data: {disable_with: "Submiting..."} %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to cart_item_path(cart_item.product_id), method: :delete do %>
-            <i class="fa fa-trash"></i>
-            <% end %>
-          </td>
-        </tr>
-        <% end %>
-
-      </tbody>
-    </table> -->
  <hr>
     <div class="col-md-12 padding-bottom-2x">
           <div class="shopping-cart">
             <% current_cart.cart_items.each do |cart_item| %>
-              <div class="item">
+              <div class="item cart_item_div">
                   <% if cart_item.product.image.present? %>
                     <%= link_to image_tag(cart_item.product.image.medium.url), product_path(cart_item.product), class: "item-thumb"%>
                   <% else %>
@@ -69,12 +22,12 @@
                   </div>
 
                   <div class="cart-quantity-box">
-                    <input class="cart-quantity-input" type="text" value="<%= cart_item.quantity %>">
+                    <input class="cart-quantity-input" type="text" alt="<%= cart_item_path(cart_item.product_id)%>" value="<%= cart_item.quantity %>">
                   </div>
                   <div class="cart-price-box">
-                    <p class="item-price">
+                    <p class="item-price" id="price_<%= cart_item.product.id%>">
                       <strong>
-                        ¥<%= cart_item.product.price * cart_item.quantity%>
+                        ¥ <%= cart_item.product.price * cart_item.quantity%>
                       </strong>
                     </p>
                   </div>
@@ -92,7 +45,7 @@
     <br>
 
     <div class="total clearfix">
-        <span class="pull-right col-md-3 text-center">
+        <span class="pull-right col-md-3 text-center cart_sum">
           总计
           <%= render_cart_total_price(current_cart) %>
           RMB
@@ -108,16 +61,24 @@
 </div>
 
 <script type="text/javascript">
-(".delete-comment").click(function (evt) {
-  evt.preventDefault();
-  var url = $(this).attr("href");
-  $.ajax({
-    url: url,
-    method: 'DELETE',
+$(".cart_item_div").on('change', ".cart-quantity-input", function(){
+$.ajax({
+    url: $(this).attr("alt"),
+    method: 'PATCH',
     dataType: 'json',
+    data:{
+      quantity: $(this).val()
+    },
     success: function (data) {
-      $("#comment-" + data["id"]).remove();
+      if (!data.message)
+      {
+        $("#price_" + data.product_id).html('¥ '+data.cart_item_sum);
+        $(".cart_sum").html('总计: '+ data["cart_sum"] + 'RMB');
+      }
+      else{
+        alert(data.message)
+      }
     }
-  })
 })
+});
 </script>

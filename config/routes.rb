@@ -53,7 +53,6 @@ Rails.application.routes.draw do
     resources :orders
     resources :products
     get :collected_products, controller: 'collected_products'
-    end
   end
 
   resources :comments
