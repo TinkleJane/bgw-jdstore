@@ -74,14 +74,14 @@
       <% end %>
     </div>
 
-    <div id="Comments" class="tab-pane fade">
+    <div id="Comments" class="tab-pane fade content_container">
       <div id="comment-list">
         <% @product.comments.each do |comment| %>
         <%= render :partial => "comments/comment", :locals => {:comment => comment} %>
         <% end %>
       </div>
 
-      <%= form_for Comment.new do |f| %>
+      <%= form_for Comment.new,remote: true do |f| %>
       <%= hidden_field_tag 'product_id', @product.id %>
       <div class="form-group">
         <%= f.text_area :content, :class => "form-control" %>
@@ -98,26 +98,12 @@
 $(".delete-comment").click(function (evt) {
   evt.preventDefault();
   var url = $(this).attr("href");
-  alert(url);
   $.ajax({
     url: url,
     method: 'DELETE',
     dataType: 'json',
     success: function (data) {
       $("#comment-" + data["id"]).remove();
-    }
-  })
-})
-
-$(".create-comment").click(function(evt){
-  var url = "/comments";
-  $.ajax({
-    url: url,
-    data : $("#new_comment").serialize(),
-    method: 'POST',
-    dateType: 'json',
-    success: function(data){
-      $("#comment-list").append("<%=j render :partial => 'comments/comment', :locals => { :comment => data } %>");
     }
   })
 })

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
      @comment.product = Product.find(params[:product_id])
 
      @comment.save
-     render :json => {:comment => @comment}
+    #  render :json => {:comment => @comment}
    end
 
    def destroy
