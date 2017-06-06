@@ -1,5 +1,5 @@
 <% if @comment.valid? %>
-  $("#comment-list").prepend("<%=j render :partial => "comments/comment", :locals => { :comment => @comment } %>");
+  $("#comment-list").append("<%=j render :partial => "comments/comment", :locals => { :comment => @comment } %>");
   $("#comment_content").val("");
  <% else %>
    alert("贴文失败");

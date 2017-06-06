@@ -32,27 +32,18 @@
       </li>
       <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path)%></li>
     <% else %>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Hi!,
-          <%= current_user.display_name %>
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <% if current_user.admin? %>
-          <li>
-            <%= link_to("Admin 选单", admin_products_path ) %>
-          </li>
-          <% end %>
-          <li><%= link_to "我的藏品", account_collected_products_path %></li>   <!--http://localhost:3000/account/collected_products   这是网址，dropdown 无法点击未来得及修复-->
-          <li>
-            <%= link_to("个人订单列表", account_orders_path) %>
-          </li>
-          <li>
-            <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %>
-          </li>
-        </ul>
-      </li>
+    <li id="hiuser">Hi!, <%= current_user.email.split("@")[0] %> </li>
+        <% if current_user.admin?%>
+        <li>
+          <%= link_to("Admin 选单", admin_products_path)%>
+        </li>
+        <% end %>
+        <li>
+          <%= link_to("我的订单", account_orders_path)%>
+        </li>
+        <li>
+          <%= link_to(content_tag(:i, "登出", class: "fa fa-sign-out"), destroy_user_session_path, :method => :delete)%>
+        </li>
       <% end %>
     </ul>
   </div>
