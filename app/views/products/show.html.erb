@@ -51,8 +51,7 @@
   </div>
 </div>
 <hr>
-<div class="col-md-12"></div>
-<div class="content_container text-center pb20">
+<div class="content_container pb20">
   <ul class="nav nav-tabs">
     <li class="active">
       <a data-toggle="tab" href="#Details">商品详情</a>
@@ -61,7 +60,8 @@
       <a data-toggle="tab" href="#Comments">商品评论</a>
     </li>
   </ul>
-  <div class="tab-content">
+
+  <div class="tab-content pt20">
     <div id="Details" class="tab-pane fade in active">
       <% if @product.photos.present? %>
       <% @product.photos.each_with_index do |p, index| %>
@@ -73,8 +73,52 @@
       <% end %>
       <% end %>
     </div>
+
     <div id="Comments" class="tab-pane fade">
-      aaa
+      <div id="comment-list">
+        <% @product.comments.each do |comment| %>
+        <%= render :partial => "comments/comment", :locals => {:comment => comment} %>
+        <% end %>
+      </div>
+
+      <%= form_for Comment.new do |f| %>
+      <%= hidden_field_tag 'product_id', @product.id %>
+      <div class="form-group">
+        <%= f.text_area :content, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "发表评论", :class => "create-comment btn btn-small" %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
+</div>
+<script>
+$(".delete-comment").click(function (evt) {
+  evt.preventDefault();
+  var url = $(this).attr("href");
+  alert(url);
+  $.ajax({
+    url: url,
+    method: 'DELETE',
+    dataType: 'json',
+    success: function (data) {
+      $("#comment-" + data["id"]).remove();
+    }
+  })
+})
+
+$(".create-comment").click(function(evt){
+  var url = "/comments";
+  $.ajax({
+    url: url,
+    data : $("#new_comment").serialize(),
+    method: 'POST',
+    dateType: 'json',
+    success: function(data){
+      $("#comment-list").append("<%=j render :partial => 'comments/comment', :locals => { :comment => data } %>");
+    }
+  })
+})
+</script>

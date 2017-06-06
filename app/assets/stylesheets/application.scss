@@ -45,6 +45,18 @@
   background-color: #EEE;
   width: 100%;
 }
+
+.btn-small{
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-small:hover{
+  color: #000;
+  background-color: #fff;
+  border-color: #000;
+}
 .user_container{
   background: #fff;
   margin-top: 100px;
