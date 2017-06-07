@@ -34,11 +34,11 @@ puts "create product labels and groups"
 products = [
   {title: '1 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
   {title: '2 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '3 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
-  {title: '4 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
-  {title: '5 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
-  {title: '6 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
-  {title: '7 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '3 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '4 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '5 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '6 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  {title: '7 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
   {title: '8 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
 ]
 
