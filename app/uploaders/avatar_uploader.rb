@@ -55,4 +55,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  self.qiniu_can_overwrite = true
 end
