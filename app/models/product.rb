@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
   acts_as_list
-  
+
   has_many :photos
   accepts_nested_attributes_for :photos
 
@@ -15,4 +15,6 @@ class Product < ApplicationRecord
   has_many :fans, through: :collection_containers, source: :user
 
   has_many :comments
+
+  scope :onsaled, -> { where(is_hidden: false) }
 end

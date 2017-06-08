@@ -51,7 +51,12 @@
   border-color: #000;
 }
 
-.btn-small:hover{
+.radio-group.active{
+  @extend.btn-small;
+  width: 100px;
+}
+
+.btn-small:hover, .radio-group{
   color: #000;
   background-color: #fff;
   border-color: #000;
