@@ -75,7 +75,7 @@
       <% if @product.photos.present? %>
       <% @product.photos.each_with_index do |p, index| %>
       <% if !p.avatar.url.blank? %>
-      <%= image_tag p.avatar.url, resize_to_fit:[400,600], class: "thumbnail centerPhoto" %>
+      <%= image_tag p.avatar.url, resize_to_fit:[400,600], class: "thumbnail centerPhoto picture-center" %>
       <br >
       <br>
       <% end %>
@@ -102,7 +102,7 @@
     </div>
   </div>
 </div>
-</div>
+
 <script>
 $("#comment-list").on('click', ".delete-comment", function(evt){
   evt.preventDefault();

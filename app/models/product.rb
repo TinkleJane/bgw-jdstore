@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
-
+  acts_as_list
+  
   has_many :photos
   accepts_nested_attributes_for :photos
 
@@ -9,7 +10,7 @@ class Product < ApplicationRecord
 
   has_many :group_relationships
   has_many :groups, through: :group_relationships
-  
+
   has_many :collection_containers
   has_many :fans, through: :collection_containers, source: :user
 

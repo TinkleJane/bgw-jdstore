@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606113215) do
+ActiveRecord::Schema.define(version: 20170608024305) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20170606113215) do
     t.boolean  "is_hidden",   default: false
     t.boolean  "is_command",  default: false
     t.integer  "color",       default: 0
+    t.integer  "position"
     t.index ["color"], name: "index_products_on_color"
     t.index ["is_hidden"], name: "index_products_on_is_hidden"
   end
