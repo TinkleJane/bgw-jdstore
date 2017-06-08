@@ -31,49 +31,52 @@ create_labels = for i in 1..label_names.length do
 end
 puts "create product labels and groups"
 
+Product.delete_all
+
 products = [
   {title: '1 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '2 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '3 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '4 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '5 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '6 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '7 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
-  {title: '8 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
+  {title: '2 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99, image: open("http://oqyn5ink5.bkt.clouddn.com/funny-cat.jpg")}
+  # {title: '3 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  # {title: '4 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  # {title: '5 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  # {title: '6 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  # {title: '7 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99},
+  # {title: '8 product_test', description: '衣服的质地，颜色，尺码，主题，标签等', price: 99}
 ]
 
 create_products = for i in 1..products.length do
-  Product.create!(title: products[i - 1][:title], description: products[i - 1][:description], price: rand(5..100), quantity: 100)
+  Product.create!(title: products[i - 1][:title], description: products[i - 1][:description], price: rand(5..100), quantity: 100, image: products[i - 1][:image])
 end
 
 puts 'products created.'
-#
-# images = [
-#   { index: 1,
-#     image: open("#{Rails.root}/app/assets/images/idea1.jpg"),
-#     photos:[
-#       open("#{Rails.root}/app/assets/images/idea1.jpg"),
-#       'https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg'
-#     ]
-#   },
-#   { index: 2,
-#     image: "https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg",
-#     photos:[
-#       open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg9810t9bgj304g04g0si.jpg",
-#       open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg97lws1i4j304g04gdfl.jpg"
-#     ]
-#   },
-#   { index: 3,
-#     image: "https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg",
-#     photos:[
-#       open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg9810t9bgj304g04g0si.jpg",
-#       open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg97lws1i4j304g04gdfl.jpg"
-#     ]
-#   }
-# ]
-# Product.first.update!(title: "seed", image: images[0]["image"])
-# Photo.create!(product_id: Product.first.id, avatar: images[0][:photos][0])
-# Photo.create!(product_id: Product.first.id, avatar: images[0][:photos][1])
+
+images = [
+  { index: 1,
+    image: open("http://oqyn5ink5.bkt.clouddn.com/funny-cat.jpg"),
+    photos:[
+      open("#{Rails.root}/app/assets/images/happy-b.jpg"),
+      open('http://oqyn5ink5.bkt.clouddn.com/funny-cat.jpg')
+    ]
+  },
+  { index: 2,
+    image: "https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg",
+    photos:[
+      open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg9810t9bgj304g04g0si.jpg",
+      open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg97lws1i4j304g04gdfl.jpg"
+    ]
+  },
+  { index: 3,
+    image: "https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg",
+    photos:[
+      open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg9810t9bgj304g04g0si.jpg",
+      open: "https://ww3.sinaimg.cn/large/006tKfTcly1fg97lws1i4j304g04gdfl.jpg"
+    ]
+  }
+]
+
+Product.first.update!(title: "seed", image: images[0]["image"])
+Photo.create!(product_id: Product.first.id, avatar: images[0][:photos][0])
+Photo.create!(product_id: Product.first.id, avatar: images[0][:photos][1])
 
 # insert_image = for i in 1..products.length do
 #   Product.find(i).update!(image: images[i-1]["image"])
