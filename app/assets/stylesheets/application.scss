@@ -126,13 +126,23 @@
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #bdc3c7;//鼠标放置在链接上的文字颜色
+  color: #777;//鼠标放置在链接上的文字颜色
   background-color: transparent;//鼠标放置在链接上的背景颜色，这里设为透明
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
+}
 
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus
+ {
+    color: #777;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #fff;
+    color: #000;
 }
 
 /*===== Header image =====*/

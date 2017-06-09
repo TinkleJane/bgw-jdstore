@@ -16,18 +16,18 @@ class Admin::OrdersController < ApplicationController
 
   def ship
     @order.ship!
-    OrderMailer.notify_ship(@order).deliver!
+    # OrderMailer.notify_ship(@order).deliver!
     redirect_to :back
   end
 
   def shipped
-    @order.deliver!
+    # @order.deliver!
     redirect_to :back
   end
 
   def cancel
     @order.cancel_order!
-    OrderMailer.notify_cancel(@order).deliver!
+    # OrderMailer.notify_cancel(@order).deliver!
     redirect_to :back
   end
 

@@ -37,9 +37,17 @@
         <%= product.price %>
       </td>
       <td>
-        <%= link_to("Edit", edit_admin_product_path(product)) %>
-        <%= link_to("上移", move_up_admin_product_path(product), :method => :post) %>
-        <%= link_to("下移", move_down_admin_product_path(product), :method => :post) %>
+        <%= link_to("编辑", edit_admin_product_path(product), :class => "btn btn-xs btn-info") %>
+        <br><br>
+        <%= link_to("上移", move_up_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-success") %>
+        <br><br>
+        <%= link_to("下移", move_down_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-danger") %>
+        <br><br>
+        <% if product.is_hidden %>
+        <%= link_to publish_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-small" do %> <i class="fa fa-eye"></i> <% end %>
+        <% else %>
+        <%= link_to hide_admin_product_path(product), :method => :post, :class => "btn btn-xs btn-small" do %><i class="fa fa-eye-slash"></i> <% end %>
+        <% end %>
       </td>
     </tr>
     <% end %>

@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="content_container">
 
     <h2>
       购物明细
     </h2>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-responsive">
       <thead>
         <tr>
           <th width="80%">商品明细</th>
@@ -55,23 +55,23 @@
       <legend>
         订购人</legend>
       <div class="form-group col-lg-6">
-        <%= f.input :billing_name  %>
+        <%= f.input :billing_name, :input_html => { :value => '黑白设计嗜' }  %>
       </div>
       <div class="form-group col-lg-6">
-        <%= f.input :billing_address  %>
+        <%= f.input :billing_address, :input_html => {:value => '地球村'}  %>
       </div>
 
       <legend>
         收货人</legend>
       <div class="form-group col-lg-6">
-        <%= f.input :shipping_name  %>
+        <%= f.input :shipping_name, :input_html => { :value => current_user.display_name }  %>
       </div>
       <div class="form-group col-lg-6">
-        <%= f.input :shipping_address  %>
+        <%= f.input :shipping_address, :input_html => { :value => '月亮谷'} %>
       </div>
 
-      <div class="checkout">
-        <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+      <div class="checkout col-md-12 mt30">
+        <%= f.submit "生成订单", class: "btn btn-lg btn-small pull-right",
                        data: { disable_with: "Submitting..." } %>
       </div>
       <% end %>
