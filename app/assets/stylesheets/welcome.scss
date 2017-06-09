@@ -32,3 +32,42 @@
     font-size: 18px;
     font-weight: 400
 }
+
+body {
+    color: #6d7679;
+    font-family: arial;
+    font-weight: normal;
+    line-height: 1.5;
+}
+.section-medium {
+    background-color: #edf0f1;
+    padding: 3rem 0;
+}
+h3 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1.3125rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.week-title{
+  font-size: 5rem;
+  margin-bottom: 30px;
+  background-color: #000;
+  color: #fff;
+  width: 300px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.week-title:hover, .week-title:focus{
+  font-size: 6rem;
+  margin-bottom: 30px;
+}
+
+section .columns:hover,
+section .columns:focus {
+  box-shadow: 10px 10px 50px 1px #d8d8d8;
+}

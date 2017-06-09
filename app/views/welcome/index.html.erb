@@ -3,39 +3,50 @@
     <%= image_tag("cover-red.jpg") %>
   </div>
 
-  <section class="content_container mt10 mb20">
+  <section class="content_container mt30 mb50">
     <div class="row">
       <div class="col-lg-12">
         <h2 class="lead text-center title-center mt50 mb50">Give you easy choice</h2>
       </div>
-      <div class="col-lg-4 col-sm-6 text-center">
-        <%= image_tag('beauty-lady.png', class: "img-circle img-responsive img-center fadein", size: "200x200") %>
-        <!-- <img class="img-circle img-responsive img-center" src="https://ww2.sinaimg.cn/large/006tKfTcly1fg985clqakj304g04g0si.jpg" width="200" height="200" alt=""> -->
-        <!-- <h3>你会为挑衣服而烦恼吗？ -->
-          <br>
-          <!-- <small></small> -->
-        </h3>
-        <p>黑与白，给你最经典的选择!</p>
+        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+          <%= image_tag('beauty-lady.png', class: "img-circle img-responsive img-center fadein", size: "200x200") %>
+            <br><br>
+          </h3>
+          <p>黑与白，给你最经典的选择!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+          <%= image_tag('fengrenji.png', class: "img-circle img-responsive img-center", size: "200x200") %>
+          <br><br>
+          <p>每一款T恤都是专业设计师精心打造!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+          <%= image_tag('cotton.png', class: "img-circle img-responsive img-center", size: "200x200") %>
+          <br><br>
+          <p>舒服透气，柔软，吸湿，是来自大自然的恩惠!</p>
+        </div>
       </div>
-      <div class="col-lg-4 col-sm-6 text-center">
-        <%= image_tag('fengrenji.png', class: "img-circle img-responsive img-center", size: "200x200") %>
-        <!-- <h3>衣服不够个性
-          <small>有趣</small>
-        </h3> -->
-        <br>
-        <p>每一款T恤都是专业设计师精心打造!</p>
-      </div>
-      <div class="col-lg-4 col-sm-6 text-center">
-        <%= image_tag('cotton.png', class: "img-circle img-responsive img-center", size: "200x200") %>
-        <!-- <h3>穿着不够舒适
-          <small>材质我们也替你选好了</small>
-        </h3> -->
-        <br>
-        <p>舒服透气，柔软，吸湿，是来自大自然的恩惠!</p>
-      </div>
-    </div>
   </section>
-
+<% if @products.count == 2 %>
+  <section class="section-medium">
+          <div class="row">
+              <div class="week-title large-12 text-center">
+                  本周主打
+              </div>
+          </div>
+          <div class="row">
+              <div class="columns col-md-offset-3 col-md-3">
+                <%= link_to product_path(@products[0]) do %>
+                  <%= image_tag(@products[0].image.medium.url, class: "img-responsive") %>
+                <% end %>
+              </div>
+              <div class="columns col-md-3">
+                <%= link_to product_path(@products[1]) do %>
+                  <%= image_tag(@products[1].image.medium.url, class: "img-responsive") %>
+                <% end %>
+              </div>
+          </div>
+      </section>
+      <% end %>
   <div class="content-section-a mt20">
    <div class="container">
      <div class="row">

@@ -73,7 +73,7 @@ $.ajax({
       if (!data.message)
       {
         $("#price_" + data.product_id).html('¥ '+data.cart_item_sum);
-        $(".cart_sum").html('总计: '+ data["cart_sum"] + 'RMB');
+        $(".cart_sum").html('总计: '+ data["cart_sum"] + ' RMB');
       }
       else{
         alert(data.message)
