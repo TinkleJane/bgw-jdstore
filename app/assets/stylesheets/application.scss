@@ -173,6 +173,7 @@
 .push-box {
   text-align: center;
   height: 200px;
+  background-position: center 80%;
   background: image_url("bottom_image.jpg") no-repeat scroll top center/ cover;
 }
 
@@ -184,3 +185,101 @@
 .list-image-active {
       box-shadow: 1.5px 1.5px 1.5px #666;
     }
+
+    footer {
+        padding: 15px 0
+    }
+
+    footer ul {
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none
+    }
+
+    footer ul li {
+        display: inline-block
+    }
+
+    footer ul li a {
+        color: inherit;
+        padding: 15px;
+        font-weight: 500;
+        font-size: 12px;
+        text-transform: uppercase;
+        border-radius: 3px;
+        text-decoration: none;
+        position: relative;
+        display: block
+    }
+
+    footer ul li a:hover {
+        text-decoration: none
+    }
+
+    footer .copyright {
+        padding: 15px 0
+    }
+
+    footer .copyright .material-icons {
+        font-size: 18px;
+        position: relative;
+        top: 3px
+    }
+
+footer .footer_icon li .btn-weixin {
+    background-color: #333
+}
+
+footer .footer_icon li .btn-weibo {
+    background-color: #CD201F
+}
+
+footer .footer_icon li .btn-facebook {
+    background-color: #3b5998
+}
+
+footer .footer_icon li .btn-linkedin {
+    background-color: #0976b4
+}
+
+footer .footer_icon{
+  color: #FFFFFF;
+}
+
+.btn.btn-just-icon,.navbar .navbar-nav>li>a.btn.btn-just-icon {
+    font-size: 18px;
+    padding: 10px 10px;
+    line-height: 1em
+}
+
+.btn.btn-round,.navbar .navbar-nav>li>a.btn.btn-round {
+    border-radius: 30px
+}
+
+.all_image_css {
+    transition: 0.8s;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.all_image_css:hover {
+    filter: alpha(Opacity=100);
+    -moz-opacity: 0.4;
+    opacity: 0.7;
+    transition: 0.8s
+}
+
+/* 页脚 */
+.footer {
+  margin-top: 20px;
+  width: 100%;
+  height: 200px;
+}
+
+body {
+    font-family: Verdana,"Helvetica Neue",Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    background-color: #f9f9fa;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}

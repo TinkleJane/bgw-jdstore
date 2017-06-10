@@ -5,83 +5,92 @@
 
   <section class="content_container mt30 mb50">
     <div class="row">
-      <div class="col-lg-12">
-        <h2 class="lead text-center title-center mt50 mb50">Give you easy choice</h2>
+      <div class="col-lg-12 mt20">
+        <!-- <h2 class="lead text-center title-center mt50 mb50">Give you easy choice</h2> -->
+        <%= image_tag('B&W-footer.png', class: "img-responsive img-slogo") %>
       </div>
-        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
-          <%= image_tag('beauty-lady.png', class: "img-circle img-raised img-responsive img-center", size: "200x200") %>
-            <br><br>
-          </h3>
-          <large>黑与白，给你最经典的选择!</large>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
-          <%= image_tag('fengrenji.png', class: "img-circle img-responsive img-center", size: "200x200") %>
-          <br><br>
-          <p>每一款T恤都是专业设计师精心打造!</p>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
-          <%= image_tag('cotton.png', class: "img-circle img-responsive img-center", size: "200x200") %>
-          <br><br>
-          <p>舒服透气，柔软，吸湿，是来自大自然的恩惠!</p>
-        </div>
-      </div>
-  </section>
+      <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+        <%= image_tag('beauty-lady.png', class: "img-circle img-raised img-responsive img-center all_image_css", size: "200x200") %>
+        <br><br>
+      </h3>
+      <large>黑与白，给你最经典的选择!</large>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+      <%= image_tag('fengrenji.png', class: "img-circle img-responsive img-center all_image_css", size: "200x200") %>
+      <br><br>
+      <p>每一款T恤都是专业设计师精心打造!</p>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mt50 mb30">
+      <%= image_tag('cotton.png', class: "img-circle img-responsive img-center all_image_css", size: "200x200") %>
+      <br><br>
+      <p>舒服透气，柔软，吸湿，是来自大自然的恩惠!</p>
+    </div>
+  </div>
+</section>
 <% if @products.count == 2 %>
-  <section class="section-medium">
-          <div class="row">
-              <div class="week-title large-12 text-center">
-                  本周主打
-              </div>
-          </div>
-          <div class="row">
-              <div class="columns col-md-offset-3 col-md-3">
-                <%= link_to product_path(@products[0]) do %>
-                  <%= image_tag(@products[0].image.medium.url, class: "img-responsive") %>
-                <% end %>
-              </div>
-              <div class="columns col-md-3">
-                <%= link_to product_path(@products[1]) do %>
-                  <%= image_tag(@products[1].image.medium.url, class: "img-responsive") %>
-                <% end %>
-              </div>
-          </div>
-      </section>
+<section class="section-medium">
+  <div class="row">
+    <div class="week-title large-12 text-center">
+      本周主打
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns col-md-offset-2 col-md-4">
+      <%= link_to product_path(@products[0]) do %>
+      <%= image_tag(@products[0].image.medium.url, class: "img-responsive  all_image_css") %>
       <% end %>
-  <div class="content-section-a mt20">
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-5 col-sm-6">
-         <hr class="section-heading-spacer">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">黑白摄影大赛</h2>
-         <p class="lead">拿起你的相机，寻找黑白世界的表现力</p>
-         <%= link_to("我要投稿", products_path, class:'btn btn-lg btn-small' ) %>
-       </div>
-       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-         <%= image_tag("B&W-photo.jpg", class: "img-responsive") %>
-       </div>
-     </div>
-   </div>
- </div>
+    </div>
+    <div class="columns col-md-4">
+      <%= link_to product_path(@products[1]) do %>
+      <%= image_tag(@products[1].image.medium.url, class: "img-responsive  all_image_css") %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<% end %>
+<div class="content-section-a mt20">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">黑白摄影大赛</h2>
+        <p class="lead">拿起你的相机，寻找黑白世界的表现力</p>
+        <%= link_to("我要投稿", products_path, class:'btn btn-lg btn-small' ) %>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+        <%= image_tag("B&W-photo.jpg", class: "img-responsive") %>
+      </div>
+    </div>
+  </div>
+</div>
 
- <div class="content-section-b">
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-         <hr class="section-heading-spacer">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">黑白设计大赛</h2>
-         <p class="lead">寻找身边的设计师</p>
-         <%= link_to("我要投稿", products_path, class:'btn btn-lg btn-small' ) %>
-       </div>
-       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-         <%= image_tag("competition-design.jpg", class: "img-responsive") %>
-       </div>
-     </div>
-   </div>
- </div>
+<div class="content-section-b">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">黑白设计大赛</h2>
+        <p class="lead">寻找身边的设计师</p>
+        <%= link_to("我要投稿", products_path, class:'btn btn-lg btn-small' ) %>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+        <%= image_tag("competition-design.jpg", class: "img-responsive") %>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- <section class="text-center row">
+<div id="carousel-container"></div>
+
+<div class="content-push">
+  <div class="short-line"></div>
+  <h2>听听他们怎么说</h2>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+</div>
+<!-- <section class="text-center row">
     <div class="col-md-3">
       <p class="lead pt20">最新创意文化衫</p>
       <%= image_tag("lonely-cy.png", class: "img-responsive") %>
@@ -99,11 +108,11 @@
       <%= image_tag("team1.jpg", class: "img-responsive") %>
     </div>
   </section> -->
-  <!-- <section class="content_container text-center">
+<!-- <section class="content_container text-center">
     <h3>专注黑白、专注设计、专注创意，用最好的面料，打造最有创意的文化衫</h3>
   </section> -->
-  <!--===== 立即購買 =====-->
-  <section class="push-box row">
-    <%= link_to("立即购买", products_path, class:'btn btn-lg btn-default' ) %>
-  </section>
+
+<div class="footer push-box">
+  <%= link_to("立即购买", products_path, class:'btn btn-lg btn-default mt100' ) %>
+</div>
 </div>

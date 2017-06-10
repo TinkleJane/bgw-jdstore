@@ -71,3 +71,57 @@ section .columns:hover,
 section .columns:focus {
   box-shadow: 10px 10px 50px 1px #d8d8d8;
 }
+
+.img-slogo{
+  display: block;
+  background-position: center 80%;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  width: 100%;
+  min-width: 960px;
+  height: 100px;
+  position: relative;
+}
+
+.short-line {
+    display: block;
+    background: #000;
+    border-style: none;
+    border-radius: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 53;
+    width: 50px;
+    height: 3px;
+    position: relative;
+}
+
+.content-push{
+  display: block;
+  width: 100%;
+  height: 400px;
+  min-width: 960px;
+  background-color: #f2f2f2;
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-push h2 {
+    font-size: 1.428em;
+    text-align: center;
+    padding-bottom: 60px;
+    letter-spacing: 3px;
+}
+
+.slick-arrow-container {
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+}
