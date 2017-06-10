@@ -64,6 +64,11 @@
     <%= image_tag("https://ww1.sinaimg.cn/large/006tNbRwgy1fggb07sy5sj30by0byt9c.jpg", class: "img-responsive  oldshow-img") %>
     <%= image_tag("https://ww1.sinaimg.cn/large/006tNbRwgy1fggai7mny9j3046046t8l.jpg", class: "img-responsive  oldshow-img") %>
     <%= image_tag("https://ww3.sinaimg.cn/large/006tNbRwgy1fggai7qrg5j3046046mx1.jpg", class: "img-responsive  oldshow-img") %>
+    <% @products_show.each do |p| %>
+    <%= link_to product_path(p) do %>
+    <%= image_tag(p.image_url, class: "img-responsive  oldshow-img") %>
+    <% end %>
+    <% end %>
   </div>
 </div>
 
