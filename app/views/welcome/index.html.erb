@@ -34,7 +34,7 @@
       本周主打
     </div>
   </div>
-  <div class="row">
+  <div class="row mt20">
     <div class="columns col-md-offset-2 col-md-4">
       <%= link_to product_path(@products[0]) do %>
       <%= image_tag(@products[0].image.medium.url, class: "img-responsive  all_image_css") %>
@@ -48,7 +48,26 @@
   </div>
 </section>
 <% end %>
-<div class="content-section-a mt20">
+
+<div class="short-line"></div>
+<h2 class="text-center">更多选择</h2>
+<div class="show-list">
+  <div style="width:9999px;">
+    <br>
+    <%= image_tag("https://ww1.sinaimg.cn/large/006tNbRwgy1fggai7mny9j3046046t8l.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww3.sinaimg.cn/large/006tNbRwgy1fggai7qrg5j3046046mx1.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww4.sinaimg.cn/large/006tNbRwgy1fggag0x2olj30460463yi.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww4.sinaimg.cn/large/006tNbRwgy1fggah4hfeoj3046046t8l.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww3.sinaimg.cn/large/006tNbRwgy1fggb08r4inj30by0bymxv.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww2.sinaimg.cn/large/006tNbRwgy1fggb08f55wj30by0bygm8.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww2.sinaimg.cn/large/006tNbRwgy1fggb07ugyzj30by0byjsr.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww1.sinaimg.cn/large/006tNbRwgy1fggb07sy5sj30by0byt9c.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww1.sinaimg.cn/large/006tNbRwgy1fggai7mny9j3046046t8l.jpg", class: "img-responsive  oldshow-img") %>
+    <%= image_tag("https://ww3.sinaimg.cn/large/006tNbRwgy1fggai7qrg5j3046046mx1.jpg", class: "img-responsive  oldshow-img") %>
+  </div>
+</div>
+
+<div class="content-section-a">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 col-sm-6">
@@ -82,12 +101,63 @@
   </div>
 </div>
 
-<div id="carousel-container"></div>
+<!-- <div class="slick-container slick_container" style="background-color: grey;">
+  <div class="slider slick-center slick-initialized slick-slider">
+    <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+    <div aria-live="polite" class="slick-list draggable" style="padding: 0px 60px;">
+      <div class="slick-track" style="opacity: 1; width: 2058px; transform: translate3d(-441px, 0px, 0px);" role="listbox">
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide62" data-slick-index="-4" aria-hidden="true">
+          <h3>3</h3>
+        </div>
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide63" data-slick-index="-3" aria-hidden="true">
+          <h3>4</h3>
+        </div>
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide64" data-slick-index="-2" aria-hidden="true">
+          <h3>5</h3>
+        </div>
+        <div class="slick-slide slick-cloned slick-active" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide65" data-slick-index="-1" aria-hidden="false">
+          <h3>6</h3>
+        </div>
+        <div class="slick-slide slick-current slick-active slick-center" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide60" data-slick-index="0" aria-hidden="false">
+          <h3>1</h3>
+        </div>
+        <div class="slick-slide slick-active" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide61" data-slick-index="1" aria-hidden="false">
+          <h3>2</h3>
+        </div>
+        <div class="slick-slide" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide62" data-slick-index="2" aria-hidden="true">
+          <h3>3</h3>
+        </div>
+        <div class="slick-slide" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide63" data-slick-index="3" aria-hidden="true">
+          <h3>4</h3>
+        </div>
+        <div class="slick-slide" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide64" data-slick-index="4" aria-hidden="true">
+          <h3>5</h3>
+        </div>
+        <div class="slick-slide" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide65" data-slick-index="5" aria-hidden="true">
+          <h3>6</h3>
+        </div>
+        <div class="slick-slide slick-cloned slick-center" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide60" data-slick-index="6" aria-hidden="true">
+          <h3>1</h3>
+        </div>
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide61" data-slick-index="7" aria-hidden="true">
+          <h3>2</h3>
+        </div>
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide62" data-slick-index="8" aria-hidden="true">
+          <h3>3</h3>
+        </div>
+        <div class="slick-slide slick-cloned" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide63" data-slick-index="9" aria-hidden="true">
+          <h3>4</h3>
+        </div>
+      </div>
+    </div>
+    <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
+  </div>
+</div> -->
 
 <div class="content-push pl120 pr100">
   <div class="short-line"></div>
   <h2>听听他们怎么说</h2>
-  <div class="col-md-4 col-sm-12 pb20">
+  <div class="col-lg-4 col-md-6 col-sm-12 pb20">
     <div class="user-block">
       <div class="top">
         <div class="img">
@@ -106,7 +176,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 col-sm-12 pb20">
+  <div class="col-lg-4 col-md-6 col-sm-12 pb20">
     <div class="user-block" id="xdite">
       <div class="top">
         <div class="img">
@@ -125,7 +195,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 col-sm-12 pb20">
+  <div class="col-lg-4 col-md-6 col-sm-12 pb20">
     <div class="user-block">
       <div class="top">
         <div class="img">
@@ -147,8 +217,8 @@
 </div>
 <div class="online-pk hidden-div" id="online-pannel">
   <p>直播室黑白T恤大比拼</p>
-  <%= image_tag("https://ww3.sinaimg.cn/large/006tKfTcgy1fgfxnhy6cnj3046046dgs.jpg", class: "img-responsive  online-img") %>
   <%= image_tag("https://ww2.sinaimg.cn/large/006tKfTcgy1fgfxlorebgj3046046mxz.jpg", class: "img-responsive  online-img") %>
+  <%= image_tag("https://ww3.sinaimg.cn/large/006tKfTcgy1fgfxnhy6cnj3046046dgs.jpg", class: "img-responsive  online-img") %>
   <%= image_tag("https://ww1.sinaimg.cn/large/006tKfTcgy1fgfxlounyej3046046t9i.jpg", class: "img-responsive  online-img") %>
   <%= image_tag("https://ww1.sinaimg.cn/large/006tKfTcgy1fgg00i9o0lj3046046758.jpg", class: "img-responsive  online-img") %>
   <p>还有谁。。。</p>

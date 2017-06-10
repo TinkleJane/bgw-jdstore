@@ -173,6 +173,51 @@ section .columns:focus {
   margin-right: 10px;
 }
 
+.oldshow-img{
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 150px !important;
+  width: auto;
+  position: relative;
+}
+
 .hidden-div{
   display: none;
+}
+
+// slick old works
+.slick-container{
+
+}
+
+.slick-slide .image{padding:10px;}
+.slick-slide img{border:5px solid #FFF;display:block;width:100%;}
+.slick-slide img.slick-loading{border:0 }
+.slick-slider{margin:30px auto 50px;}
+.subheading{color:#555;font-size:12px;font-style:italic;font-weight:400;margin:10px auto;text-align:center;}
+
+.slick_container{
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.showold_container{
+  margin: 0 auto;
+  max-width: 1380px;
+  padding: 0 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.show-list{
+  margin-left:auto;
+  margin-right: auto;
+  max-width: 1380px;
+  height:200px;
+  overflow-x:auto;
+  overflow-y:hidden;
 }

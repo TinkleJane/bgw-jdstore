@@ -4,28 +4,40 @@
     <div class="input-group">
       <input type="text" class="search-input p10" name="q" placeholder="Search for..." autofocus="true">
       <span class="input-group-btn">
-        <button type="submit"  class="btn btn-lg btn-normal">
+        <button type="submit" class="btn btn-lg btn-normal">
           搜索
         </button>
       </span>
     </div>
     <% end %>
   </div>
-  <div class="col-lg-2 col-md-2">
-    <%= link_to("全部", products_path, method: :get,
-                    class: "btn btn-lg btn-wight advance-btn") %>
+  <div class="col-md-12 ml100 mt20 mb30">
+    <div class="col-lg-2 col-md-2">
+      <%= link_to("全部", products_path, method: :get,
+                      class: "btn btn-wight advance-btn") %>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <%= link_to "黑", search_color_products_path(:color => 0),
+                      class: "btn btn-wight advance-btn" %>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <%= link_to "白", search_color_products_path(:color => 1),
+                      class: "btn btn-wight advance-btn" %>
+    </div>
   </div>
-  <div class="bg-screen pt20 col-lg-offset-1 col-lg-8 col-md-offset-1 col-md-8">
-    <div id="advanced-pannel" class="h130 hidden-div">
+  <!-- <div class="bg-screen pt20 col-lg-offset-1 col-lg-8 col-md-offset-1 col-md-8">
+    <div id="advanced-pannel" class="h130">
       <div class="group mb10">
         按分组：
         <div class="btn-group" data-toggle="buttons">
           <label class="btn radio-group active">
-            <input type="radio" name="group" value="" autocomplete="off" checked> 不限
+            <input type="radio" name="group" value="" autocomplete="off" checked>
+            不限
           </label>
           <% Group.all.each do |group| %>
           <label class="btn radio-group">
-            <input type="radio" name="group" value="<%= group.id %>" autocomplete="off"> <%= group.name %>
+            <input type="radio" name="group" value="<%= group.id %>" autocomplete="off">
+            <%= group.name %>
           </label>
           <% end %>
         </div>
@@ -35,35 +47,16 @@
         按标签：
         <div class="btn-group" data-toggle="buttons">
           <label class="btn radio-group active">
-            <input type="radio" name="label" value="" autocomplete="off" checked> 不限
+            <input type="radio" name="label" value="" autocomplete="off" checked>
+            不限
           </label>
           <% Label.all.each do |label| %>
           <label class="btn radio-group">
-            <input type="radio" name="label" value="<%= label.id %>"  autocomplete="off" ><%= label.name %>
+            <input type="radio" name="label" value="<%= label.id %>" autocomplete="off"><%= label.name %>
           </label>
           <% end %>
         </div>
       </div>
-
-      <div class="group mb10">
-        <div class="btn-group" data-toggle="buttons" style="margin-left: 4.3em;">
-          <label class="btn radio-group active">
-            <input type="radio" name="label" value="" autocomplete="off" checked> 不限
-          </label>
-          <label class="btn radio-group">
-            <input type="radio" name="label" value="<%= 0 %>"  autocomplete="off" >黑
-          </label>
-          <label class="btn radio-group">
-            <input type="radio" name="label" value="<%= 1 %>" autocomplete="off" >白
-          </label>
-        </div>
-      </div>
     </div>
-  </div>
+  </div> -->
 </div>
-
-
-
-<script type="text/javascript">
-  // $("input[name='label']:checked").val()
-</script>

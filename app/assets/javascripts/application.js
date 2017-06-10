@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require select2
 //= require bootstrap
+//= require jquery.slick
 
 $( "#dropdown" ).select2({
     theme: "bootstrap"

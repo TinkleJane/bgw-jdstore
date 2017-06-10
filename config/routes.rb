@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get :search
+      get :search_color
     end
     member do
       post :add_to_cart

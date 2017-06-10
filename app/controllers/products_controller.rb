@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:collect, :discollect]
   before_action :validate_search_key, only: [:search]
   def index
-    @products = Product.onsaled.order("position ASC").paginate(:page => params[:page], :per_page => 16 )
+    @products = Product.onsaled.order("position ASC").paginate(:page => params[:page], :per_page => 8 )
   end
 
   def show
@@ -37,19 +37,34 @@ class ProductsController < ApplicationController
   def search
     if @query_string.present?
       search_result = Product.onsaled.ransack(@search_criteria).result(:distinct => true)
-      @products = search_result.paginate(:page => params[:page], :per_page => 16 )
+      @products = search_result.paginate(:page => params[:page], :per_page => 8 )
     else
-      @products = Product.onsaled.paginate(:page => params[:page], :per_page => 16 )
+      @products = Product.onsaled.paginate(:page => params[:page], :per_page => 8 )
     end
+  end
+
+  def search_color
+    @products = Product.onsaled.order("position ASC")
+    if params[:color].present?
+      @products = @products.where(color: params[:color].to_i).paginate(:page => params[:page], :per_page => 8 )
+    end
+    render :template => "products/search"
+  end
+
+  def search_group
+    product_ids = Group_Relationship.where(group_id: params[:group_id]).pluck(:product_id)
+    @products = Product.where(id: product_ids)
   end
 
   protected
   def validate_search_key
-    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "")
     if params[:q].present?
-      @search_criteria =  {
-        title_or_description_cont: @query_string
-      }
+      @query_string = params[:q].gsub(/\\|\'|\/|\?/, "")
+      if params[:q].present?
+        @search_criteria =  {
+          title_or_description_cont: @query_string
+        }
+      end
     end
   end
 end

@@ -1,9 +1,9 @@
-<div class="row">
-  <% products.each do |product| %>
+<div class="row" id="product_list">
+  <% @products.each do |product| %>
   <div class="col-xs-6 col-md-3 picture-box-center" style="padding-left: 0 !important;">
     <%= link_to product_path(product) do %>
     <% if product.image.present? %>
-    <%= image_tag(product.image.thumb.url, class: "thumbnail picture-center") %>
+    <%= image_tag(product.image.thumb.url, class: "thumbnail picture-center all_image_css") %>
   <% else %>
     <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail picture-center") %>
     <% end %>
@@ -11,8 +11,8 @@
     <span class="product-title"><%= product.title %></span>
     <br>
     <span class="product-price">
-    ￥
-    <%= product.price %></span>
+      ￥
+      <%= product.price %></span>
   </div>
   <% end %>
 </div>
